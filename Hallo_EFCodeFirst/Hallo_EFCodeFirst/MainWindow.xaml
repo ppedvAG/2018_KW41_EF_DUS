@@ -5,8 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hallo_EFCodeFirst"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="MainWindow" Height="350" Width="400">
+    <DockPanel>
+        <DockPanel.Background>
+            <ImageBrush ImageSource="Fleischtheke.PNG"/>
+        </DockPanel.Background>
+        <WrapPanel DockPanel.Dock="Top" Margin="8">
+            <Button>Laden</Button>
+        </WrapPanel>
+        <DataGrid Name="MyGrid">
+            <DataGrid.Background>
+                <ImageBrush ImageSource="Fleischtheke.PNG"/>
+            </DataGrid.Background>
+        </DataGrid>
+    </DockPanel>
 </Window>
