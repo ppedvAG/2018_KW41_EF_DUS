@@ -14,7 +14,7 @@
             <Button>Neu</Button>
             <Button Click="Löscehn">Löschen</Button>
             <Button Click="Demo">Demo daten erstellen</Button>
-            
+            <Button Click="GetZeug">Get Alle Abteilungen Mit Things</Button>
         </WrapPanel>
         <DataGrid MouseDoubleClick="ZeigeStatus" Name="myGrid" AutoGenerateColumns="False">
             <DataGrid.Columns>

@@ -82,7 +82,8 @@ namespace EF_ModelFirst
                     MessageBoxImage.Warning,
                     MessageBoxResult.No) != MessageBoxResult.Yes == !!!!!!!!!true)
                 {
-                    context.PersonSet.Remove(m);
+                    //   context.PersonSet.Remove(m);
+                    context.DoKillFred(m.Id);
                 }
             }
         }
@@ -96,6 +97,12 @@ namespace EF_ModelFirst
                 context.Entry(m).State = EntityState.Modified;
                 MessageBox.Show(context.Entry(m).State.ToString());
             }
+        }
+
+        private void GetZeug(object sender, RoutedEventArgs e)
+        {
+           var zeug = context.GetAllAbteilungenMitThings();
+            MessageBox.Show(string.Join(", ", zeug.Select(x =>$"{x.Bezeichnung} {x.Mitarbeiter.Count}") ));
         }
     }
 }

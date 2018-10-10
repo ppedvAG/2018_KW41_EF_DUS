@@ -110,6 +110,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="GibMirAlleAbteilungenMitZeug" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="KillFred" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
         <EntityContainer Name="Model1StoreContainer">
           <EntitySet Name="AbteilungMitarbeiter" EntityType="Self.AbteilungMitarbeiter" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AbteilungSet" EntityType="Self.AbteilungSet" Schema="dbo" store:Type="Tables" />
@@ -152,6 +156,10 @@
             <End Role="Abteilung" EntitySet="AbteilungSet" />
             <End Role="Mitarbeiter" EntitySet="PersonSet" />
           </AssociationSet>
+          <FunctionImport Name="GetAllAbteilungenMitThings" EntitySet="AbteilungSet" ReturnType="Collection(Model1.Abteilung)" />
+          <FunctionImport Name="DoKillFred">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="Person">
           <Key>
@@ -218,9 +226,9 @@
       </EntityTypeMapping>
       <EntityTypeMapping TypeName="IsTypeOf(Model1.Mitarbeiter)">
         <MappingFragment StoreEntitySet="PersonSet_Mitarbeiter">
-          <ScalarProperty Name="Haarfarbe" ColumnName="Haarfarbe" />
+          <ScalarProperty Name="Beruf" ColumnName="Haarfarbe" />
+                <ScalarProperty Name="Haarfarbe" ColumnName="Beruf" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Beruf" ColumnName="Beruf" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -249,6 +257,8 @@
         <ScalarProperty Name="Id" ColumnName="Mitarbeiter_Id" />
       </EndProperty>
     </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="GetAllAbteilungenMitThings" FunctionName="Model1.Store.GibMirAlleAbteilungenMitZeug" />
+          <FunctionImportMapping FunctionImportName="DoKillFred" FunctionName="Model1.Store.KillFred" />
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>
