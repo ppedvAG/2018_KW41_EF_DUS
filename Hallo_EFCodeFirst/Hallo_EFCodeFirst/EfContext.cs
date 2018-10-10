@@ -18,6 +18,7 @@ namespace Hallo_EFCodeFirst
         public EfContext() : base("name=MyConString")
         {
             //Database.SetInitializer(new DropCreateDatabaseIfModelChanges<EfContext>());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<EfContext,Migrations.Configuration>());
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
