@@ -12,5 +12,11 @@ namespace Hallo_EFCodeFirst
     {
         public DbSet<Tier> Tiere { get; set; }
         public DbSet<Mahlzeit> Mahlzeiten { get; set; }
+
+       // public EfContext() : base("Server=.;Database=Mahlzeiten;Trusted_Connection=true")
+        public EfContext() : base("name=MyConString")
+        {
+
+        }
     }
 }

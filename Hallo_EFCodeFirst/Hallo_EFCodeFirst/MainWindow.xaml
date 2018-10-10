@@ -11,9 +11,11 @@
             <ImageBrush ImageSource="Fleischtheke.PNG"/>
         </DockPanel.Background>
         <WrapPanel DockPanel.Dock="Top" Margin="8">
-            <Button>Laden</Button>
+            <Button Click="Laden">Laden</Button>
+            <Button Click="Demo" >Demo</Button>
+            <Button Click="Speichern">Speichern</Button>
         </WrapPanel>
-        <DataGrid Name="MyGrid">
+        <DataGrid Name="myGrid">
             <DataGrid.Background>
                 <ImageBrush ImageSource="Fleischtheke.PNG"/>
             </DataGrid.Background>
