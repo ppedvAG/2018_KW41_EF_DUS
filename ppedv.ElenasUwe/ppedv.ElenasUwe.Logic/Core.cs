@@ -62,7 +62,6 @@ namespace ppedv.ElenasUwe.Logic
             var p2 = new Produkt() { Name = "Edelgas", Preis = 945.8m };
             p2.Zubereitungen.Add(zub2);
 
-
             var p3 = new Produkt() { Name = "Wundertüte", Preis = 0.67m };
             p3.Zubereitungen.Add(zub1);
             p3.Zubereitungen.Add(zub2);
