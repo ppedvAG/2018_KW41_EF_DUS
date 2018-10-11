@@ -13,7 +13,7 @@ namespace ppedv.ElenasUwe.UI.DevConsole
         static void Main(string[] args)
         {
             Console.OutputEncoding = Encoding.Unicode;
-            Console.WriteLine("*** Elenas Uwe (el Uwos) 🎂 ***");
+            Console.WriteLine("*** Elenas Uwe (el Uwos) 🎂 🎃🎁🎀📱 ***");
 
             var core = new Core();
 
