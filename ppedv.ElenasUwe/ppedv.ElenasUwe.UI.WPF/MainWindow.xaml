@@ -12,6 +12,10 @@
             <Button Click="Delete">Löschen</Button>
             <Button Click="Speichern">Speichern</Button>
         </WrapPanel>
-        <DataGrid Name="myGrid"/>
+        <DataGrid Name="myGrid">
+            <DataGrid.Background>
+                <ImageBrush ImageSource="🍷🍷🍷.png"/>
+            </DataGrid.Background>
+        </DataGrid>
     </DockPanel>
 </Window>
