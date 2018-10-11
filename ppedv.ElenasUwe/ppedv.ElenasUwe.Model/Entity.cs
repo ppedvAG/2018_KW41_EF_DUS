@@ -6,7 +6,7 @@ namespace ppedv.ElenasUwe.Model
     {
         public int Id { get; set; }
         public bool IsDeleted { get; set; }
-        public DateTime Created { get; set; }
-        public DateTime Modified { get; set; }
+        public DateTime Created { get; set; } = DateTime.Now;
+        public DateTime Modified { get; set; } = DateTime.Now;
     }
 }
