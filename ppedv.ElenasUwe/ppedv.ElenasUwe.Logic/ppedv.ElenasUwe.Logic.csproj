@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ppedv.ElenasUwe.Data.EF\ppedv.ElenasUwe.Data.EF.csproj" />
+    <ProjectReference Include="..\ppedv.ElenasUwe.Model\ppedv.ElenasUwe.Model.csproj" />
+  </ItemGroup>
+
+</Project>
