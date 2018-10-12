@@ -31,6 +31,7 @@ namespace ppedv.ElenasUwe.UI.WPF
         Core core = new Core();
         private void Laden(object sender, RoutedEventArgs e)
         {
+            core = new Core();
             myGrid.ItemsSource = core.Repository.Query<Produkt>().ToList();
         }
 
