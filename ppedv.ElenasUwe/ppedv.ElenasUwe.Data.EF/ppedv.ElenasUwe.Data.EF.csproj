@@ -50,7 +50,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EfContext.cs" />
-    <Compile Include="EfRepository.cs" />
+    <Compile Include="EfProduktRepository.cs" />
+    <Compile Include="EfRepositoryT.cs" />
+    <Compile Include="EfUnitOfWork.cs" />
     <Compile Include="Migrations\201810120716131_InitialCreate.cs" />
     <Compile Include="Migrations\201810120716131_InitialCreate.Designer.cs">
       <DependentUpon>201810120716131_InitialCreate.cs</DependentUpon>

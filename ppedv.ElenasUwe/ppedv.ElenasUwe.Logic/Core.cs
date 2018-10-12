@@ -9,30 +9,30 @@ namespace ppedv.ElenasUwe.Logic
 {
     public class Core
     {
-        public IRepository Repository { get; private set; }
+        public IUnitOfWork UnitOfWork { get; private set; }
 
-        public Core(IRepository repo)
+        public Core(IUnitOfWork uow)
         {
-            this.Repository = repo;
+            this.UnitOfWork = uow;
         }
 
-        public Core() : this(new EfRepository())
+        public Core() : this(new EfUnitOfWork())
         { }
 
 
         public Produkt GetSchnellstesHerzustellendesProdukt()
         {
-            return Repository.Query<Produkt>().OrderBy(x => x.Zubereitungen.Sum(y => y.Vorgaenge.Sum(z => z.Zeit.Ticks))).FirstOrDefault();
+            return UnitOfWork.GetRepository<Produkt>().Query().OrderBy(x => x.Zubereitungen.Sum(y => y.Vorgaenge.Sum(z => z.Zeit.Ticks))).FirstOrDefault();
         }
 
         public void CreateDemoDaten()
         {
             foreach (var p in GetDemoProdukte())
             {
-                Repository.Add(p);
+                UnitOfWork.ProduktRepository.Add(p);
             }
 
-            Repository.Save();
+            UnitOfWork.Save();
         }
 
         public IEnumerable<Produkt> GetDemoProdukte()

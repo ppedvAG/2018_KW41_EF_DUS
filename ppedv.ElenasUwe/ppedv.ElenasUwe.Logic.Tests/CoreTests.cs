@@ -12,9 +12,14 @@ namespace ppedv.ElenasUwe.Logic.Tests
         [Fact]
         public void GetSchnellstesHerzustellendesProdukt()
         {
-            var mock = new Mock<IRepository>();
-            Core core = new Core(mock.Object);
-            mock.Setup(x => x.Query<Produkt>()).Returns(core.GetDemoProdukte().AsQueryable());
+
+            var repoMock = new Mock<IRepository<Produkt>>();
+
+            var uowMock = new Mock<IUnitOfWork>();
+            uowMock.Setup(x => x.GetRepository<Produkt>()).Returns(repoMock.Object);
+
+            Core core = new Core(uowMock.Object);
+            repoMock.Setup(x => x.Query()).Returns(core.GetDemoProdukte().AsQueryable());
 
             var result = core.GetSchnellstesHerzustellendesProdukt();
 
