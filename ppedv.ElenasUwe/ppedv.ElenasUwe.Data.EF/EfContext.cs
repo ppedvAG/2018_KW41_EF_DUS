@@ -53,6 +53,12 @@ namespace ppedv.ElenasUwe.Data.EF
 
             }
 
+            foreach (var item in ChangeTracker.Entries().Where(x => x.State == EntityState.Deleted))
+            {
+                ((Entity)item.Entity).IsDeleted = true;
+                item.State = EntityState.Modified;
+            }
+
             try
             {
 
