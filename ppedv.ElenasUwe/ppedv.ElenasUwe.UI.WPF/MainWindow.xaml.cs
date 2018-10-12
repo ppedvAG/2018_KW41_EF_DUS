@@ -1,5 +1,6 @@
 ﻿using ppedv.ElenasUwe.Logic;
 using ppedv.ElenasUwe.Model;
+using ppedv.ElenasUwe.Model.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,7 +48,25 @@ namespace ppedv.ElenasUwe.UI.WPF
 
         private void Speichern(object sender, RoutedEventArgs e)
         {
-            core.Repository.Save();
+            try
+            {
+
+                core.Repository.Save();
+            }
+            catch (MyConcurrencyException ex)
+            {
+
+                var msg = "In der zwischenzeit wurde die Daten von jemand anderen geändert!\n Soll die Änderungen überschieben werden?[UserWins] (Sonst werden die eigen Änderungen verworfen!)";
+                if (MessageBox.Show(msg, "", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No) == MessageBoxResult.Yes)
+                {
+                    ex.UserWins.Invoke();
+                }
+                else
+                {
+                    ex.DbWins.Invoke();
+                    Laden(null, null);
+                }
+            }
         }
     }
 }

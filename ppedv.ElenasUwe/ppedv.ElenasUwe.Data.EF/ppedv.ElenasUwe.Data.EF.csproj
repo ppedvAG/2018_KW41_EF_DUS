@@ -51,6 +51,15 @@
   <ItemGroup>
     <Compile Include="EfContext.cs" />
     <Compile Include="EfRepository.cs" />
+    <Compile Include="Migrations\201810120716131_InitialCreate.cs" />
+    <Compile Include="Migrations\201810120716131_InitialCreate.Designer.cs">
+      <DependentUpon>201810120716131_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810120735270_dt2.cs" />
+    <Compile Include="Migrations\201810120735270_dt2.Designer.cs">
+      <DependentUpon>201810120735270_dt2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -62,6 +71,14 @@
       <Project>{925a8bc3-85c3-41f6-b7d3-2e84b2d7461e}</Project>
       <Name>ppedv.ElenasUwe.Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201810120716131_InitialCreate.resx">
+      <DependentUpon>201810120716131_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810120735270_dt2.resx">
+      <DependentUpon>201810120735270_dt2.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
