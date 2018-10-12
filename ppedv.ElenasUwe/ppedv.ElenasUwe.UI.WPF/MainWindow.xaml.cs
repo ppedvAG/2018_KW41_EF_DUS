@@ -32,7 +32,7 @@ namespace ppedv.ElenasUwe.UI.WPF
         private void Laden(object sender, RoutedEventArgs e)
         {
             core = new Core();
-            myGrid.ItemsSource = core.Repository.Query<Produkt>().ToList();
+            myGrid.ItemsSource = core.UnitOfWork.GetRepository<Produkt>().Query().ToList();
         }
 
         private void Delete(object sender, RoutedEventArgs e)
@@ -42,7 +42,7 @@ namespace ppedv.ElenasUwe.UI.WPF
                 string txt = $"Soll das Produkt {p.Name} wirklich gelöscht werden.";
                 if (MessageBox.Show(txt, "", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No) == MessageBoxResult.Yes)
                 {
-                    core.Repository.Delete(p);
+                    core.UnitOfWork.ProduktRepository.Delete(p);
                 }
             }
         }
@@ -52,7 +52,7 @@ namespace ppedv.ElenasUwe.UI.WPF
             try
             {
 
-                core.Repository.Save();
+                core.UnitOfWork.Save();
             }
             catch (MyConcurrencyException ex)
             {

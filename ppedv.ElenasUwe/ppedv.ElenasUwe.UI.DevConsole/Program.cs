@@ -17,10 +17,10 @@ namespace ppedv.ElenasUwe.UI.DevConsole
 
             var core = new Core();
 
-            if (core.Repository.Query<Produkt>().Count() == 0)
+            if (core.UnitOfWork.ProduktRepository.Query().Count() == 0)
                 core.CreateDemoDaten();
-                
-            foreach (var prod in core.Repository.GetAll<Produkt>())
+
+            foreach (var prod in core.UnitOfWork.ProduktRepository.GetAll())
             {
                 Console.WriteLine($"{prod.Name} {prod.Preis:c}");
                 foreach (var zub in prod.Zubereitungen)
